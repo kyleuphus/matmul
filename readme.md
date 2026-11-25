@@ -13,18 +13,30 @@ for (std::size_t i = 0; i < rows; i++) {
 ```
 
 google benchmark results:
-
+```text
 Run on (10 X 24 MHz CPU s)
 CPU Caches:
   L1 Data 64 KiB
   L1 Instruction 128 KiB
   L2 Unified 4096 KiB (x10)
-Load Average: 3.45, 2.84, 2.62
+Load Average: 2.15, 2.57, 3.11
 ---------------------------------------------------------
 Benchmark               Time             CPU   Iterations
 ---------------------------------------------------------
-BM_Matmul/64        0.112 ms        0.112 ms         6243
-BM_Matmul/128        1.02 ms         1.01 ms          689
-BM_Matmul/256        11.1 ms         11.1 ms           64
-BM_Matmul/512         101 ms          100 ms            7
-BM_Matmul/1024        905 ms          904 ms            1
+BM_Matmul/64        0.110 ms        0.110 ms         6402
+BM_Matmul/128       0.997 ms        0.997 ms          702
+BM_Matmul/256        10.7 ms         10.7 ms           66
+BM_Matmul/512        98.6 ms         98.5 ms            7
+BM_Matmul/1024        887 ms          886 ms            1
+```
+
+### Benchmark Environment
+
+- Hardware: Apple M4 Pro
+- Compiler: Apple Clang
+- Build system: CMake
+- Build configuration: Release
+- Compiler optimization flags: `-O3 -DNDEBUG`
+- Benchmarking framework: Google Benchmark v1.9.4
+- Matrix element type: `float` (FP32)
+- Random seed: 42
